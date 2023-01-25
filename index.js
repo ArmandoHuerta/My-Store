@@ -44,10 +44,14 @@ console.log(users.indexOf("usa"));
 app.post("/login", function (req, res) {
   console.log("Request: ");
   const { email, password } = req.body;
-  console.log(email);
-  console.log(users.indexOf("email"));
-//  res.send(password);//
-  
+
+  const result = users.indexOf(email);
+  if (result > -1) {
+    res.send("Success");
+  } else {
+    res.send("Error");
+  }
+  //  res.send(password);//
 });
 
 // TODO: Register
@@ -61,11 +65,39 @@ app.post("/login", function (req, res) {
 //       - Success: User is created in database
 //       - Error:
 
-app.post("/register", function (req, res){
+app.post("/register", function (req, res) {
   console.log("Request: ");
-  const { Firstname,lastname, email, password } = req.body;
-  console.log(req.body);
-})
+  // Recibir solicitud (request)
+  const { Firstname, lastname, email, password } = req.body;
 
+  // Crear un nuevo usuario
+  const user = {
+    firstname: Firstname,
+    lastname: lastname,
+    email: email,
+    password: password,
+  };
+
+  // Crear arreglo usuarios
+  let users = [];
+  // Añadir user a un arreglo de usuarios (simula base de datos)
+  users.push(user);
+
+  res.sendStatus(200);
+});
 
 app.listen(PORT);
+
+/* 
+    *
+    *** FUNCTION COMPONENTS
+    ??? Definiendo funcion
+    functionName (paramateres){
+      console.log(paramateres);
+      
+      return result;
+    }
+
+    ??? Ejecutando la funcion
+    const resultado = functionName(email)
+  */
