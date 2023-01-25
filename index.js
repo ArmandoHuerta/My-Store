@@ -41,6 +41,14 @@ console.log(users.indexOf("usa"));
 // Response:
 //       - Success: User is found in database
 //       - Error: User is not found in database
+app.post("/login", function (req, res) {
+  console.log("Request: ");
+  const { email, password } = req.body;
+  console.log(email);
+  console.log(users.indexOf("email"));
+//  res.send(password);//
+  
+});
 
 // TODO: Register
 // URL: /register
@@ -52,5 +60,12 @@ console.log(users.indexOf("usa"));
 // Response:
 //       - Success: User is created in database
 //       - Error:
+
+app.post("/register", function (req, res){
+  console.log("Request: ");
+  const { Firstname,lastname, email, password } = req.body;
+  console.log(req.body);
+})
+
 
 app.listen(PORT);
