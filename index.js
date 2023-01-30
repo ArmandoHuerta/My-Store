@@ -45,7 +45,7 @@ const users = [
 ];
 // ??? FIND USER
 const user = users.find((user) => user.firstname === "Sergio");
-console.log(user);
+console.log(user.firstname);
 
 // TODO: Login:
 // URL: /login
@@ -59,7 +59,8 @@ app.post("/login", function (req, res) {
   console.log("Request: ");
   const { email, password } = req.body;
 
-  const result = users.indexOf(email);
+  const result = users.find((user) => user.email === email);
+        result.password === password;
   if (result > -1) {
     res.send("Success");
   } else {
