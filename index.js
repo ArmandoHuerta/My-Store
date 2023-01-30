@@ -60,8 +60,8 @@ app.post("/login", function (req, res) {
   const { email, password } = req.body;
 
   const result = users.find((user) => user.email === email);
-        result.password === password;
-  if (result > -1) {
+        console.log(result);
+  if (result.password == password) {
     res.send("Success");
   } else {
     res.send("Error");
