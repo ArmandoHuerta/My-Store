@@ -28,10 +28,24 @@ app.post("/", function (req, res) {
   res.send(putitos);
 });
 
-// !!! Users
-const users = ["marcos@google.com", "sergio@google.com"];
-// !!! Find user in array: Returns -1 if not found
-console.log(users.indexOf("usa"));
+// ??? Registered users
+const users = [
+  {
+    firstname: "Marcos",
+    lastname: "Hernandez",
+    email: "marcos@google.com",
+    password: 12345678,
+  },
+  {
+    firstname: "Sergio",
+    lastname: "Hernandez",
+    email: "sergio@google.com",
+    password: 12345678,
+  },
+];
+// ??? FIND USER
+const user = users.find((user) => user.firstname === "Sergio");
+console.log(user);
 
 // TODO: Login:
 // URL: /login
@@ -77,7 +91,6 @@ app.post("/register", function (req, res) {
     email: email,
     password: password,
   };
-
   // Crear arreglo usuarios
   let users = [];
   // Añadir user a un arreglo de usuarios (simula base de datos)
